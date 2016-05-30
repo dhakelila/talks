@@ -5,7 +5,7 @@ import {Link, browserHistory} from 'react-router';
 
 class App extends React.Component {
     render() {
-        debugger;
+        
         return <div>
             <h1>Users Application</h1>
             {this.props.loading && <span>Loading</span>}

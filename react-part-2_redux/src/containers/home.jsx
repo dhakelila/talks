@@ -1,17 +1,20 @@
 'use strict';
 import { connect } from 'react-redux';
 
-import {init} from '../actions/repositories';
+import {init} from '../actions/users';
+import {editUser} from '../actions/users';
 import Home from '../components/homeView';
 
 
 const mapStateToProps = (state) => {
+  //Here we pass the state to the component.
 	return {
-		repositories : state.repositories.list
+		users : state.users.list
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
+  //Here we pass to the component the actions from "actions file".
 	return {
 		init: () => (dispatch(init()))
 	};

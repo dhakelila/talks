@@ -1,7 +1,7 @@
 'use strict';
 import { connect } from 'react-redux';
 
-import Detail from '../components/detailView';
+import Create from '../components/createView';
 import {getDetail} from '../actions/users';
 
 const mapStateToProps = (state) => {
@@ -13,11 +13,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
 	return {
-		getDetail: (id) => (dispatch(getDetail(id)))
+		create: (id, job) => (dispatch(createUser(id, job)))
 	};
 };
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Detail);
+)(Create);
