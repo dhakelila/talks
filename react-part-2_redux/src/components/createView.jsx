@@ -16,7 +16,6 @@ class Create extends React.Component {
 	}
 
 	render(){
-		console.log('createView', this.props)
 		return <div>
 				<h2>CREATE NEW USER</h2>
 				<form ref="createUserForm" onSubmit={this.handleForm.bind(this)}>

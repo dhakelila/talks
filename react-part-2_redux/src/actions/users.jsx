@@ -1,4 +1,4 @@
-import {INIT, LOADING, DETAIL, JOBS} from '../constants';
+import {INIT, LOADING, DETAIL, JOBS, EDIT, DELETE} from '../constants';
 import $ from 'jquery';
 
 export function init() {
@@ -80,11 +80,14 @@ export function deleteUser(id) {
             type: LOADING,
             payload: true
         });
-        $.delete('http://45.32.235.206:8000/api/users/' + id).then(function(data){
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://45.32.235.206:8000/api/users/'+ id
+        }).then(function(data){
             dispatch({
-                type: EDIT,
+                type: DELETE,
                 payload:{
-                    editedUser: data
+                    deletedUser: data
                 }
             });
             dispatch({

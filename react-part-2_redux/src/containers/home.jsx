@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import {init} from '../actions/users';
 import {editUser} from '../actions/users';
+import {deleteUser} from '../actions/users';
 import Home from '../components/homeView';
 
 
@@ -16,7 +17,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   //Here we pass to the component the actions from "actions file".
 	return {
-		init: () => (dispatch(init()))
+		init: () => (dispatch(init())),
+		deleteUser: (id) => (dispatch(deleteUser(id)))
 	};
 };
 
