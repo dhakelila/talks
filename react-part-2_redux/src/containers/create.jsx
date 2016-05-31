@@ -2,18 +2,20 @@
 import { connect } from 'react-redux';
 
 import Create from '../components/createView';
-import {getDetail} from '../actions/users';
+import {getJobList} from '../actions/users';
+import {createUser} from '../actions/users';
 
 const mapStateToProps = (state) => {
 	return {
-		detail: state.users.detail
+    jobs : state.users.jobs,
+    createdUser: state.users.createUser
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
-
 	return {
-		create: (id, job) => (dispatch(createUser(id, job)))
+    getJobList: () => (dispatch(getJobList())),
+    createUser: (name, job) => (dispatch(createUser(name, job)))
 	};
 };
 

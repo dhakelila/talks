@@ -11,7 +11,7 @@ class Home extends React.Component {
 
 	render(){
 		return <div>
-				<h2>Home</h2>
+				<Link to={'/'}><h2>Home</h2></Link>
 				<table>
 					<thead>
 						<tr>

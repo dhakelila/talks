@@ -9,8 +9,9 @@ class Detail extends React.Component {
     }
 
     render(){
+        console.log('detailView', this.props)
         return <div>
-                <h2>Detail</h2>
+                <Link to={'/'}><h2>Detail</h2></Link>
                 {this.props.detail && <div>
                     <h3>Name: {this.props.detail.name}</h3>
                     <h3>job: {this.props.detail.job}</h3>

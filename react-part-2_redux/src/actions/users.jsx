@@ -1,4 +1,4 @@
-import {INIT, LOADING, DETAIL} from '../constants';
+import {INIT, LOADING, DETAIL, JOBS} from '../constants';
 import $ from 'jquery';
 
 export function init() {
@@ -22,7 +22,38 @@ export function init() {
     }
 };
 
+export function createUser(name, job) {
+    const data = {
+        'name': name,
+        'job': job 
+    };
+
+    return function(dispatch){
+        dispatch({
+            type: LOADING,
+            payload: true
+        });
+        $.ajax({
+            type:'POST',
+            url: 'http://45.32.235.206:8000/api/users/',
+            data: data
+        }).then(function(data){
+            dispatch({
+                type: EDIT,
+                payload:{
+                    createdUser: data
+                }
+            });
+            dispatch({
+                type: LOADING,
+                payload: false
+            });
+        });
+    }
+};
+
 export function editUser(id) {
+    return
     return function(dispatch){
         dispatch({
             type: LOADING,
@@ -72,6 +103,21 @@ export function getDetail(id) {
                 type: DETAIL,
                 payload: {
                     detail: data
+                }
+            });
+            dispatch({type: LOADING, payload: false});
+        });
+    }
+};
+
+export function getJobList() {
+    return function(dispatch) {
+        dispatch({type: LOADING, payload: true});
+        $.get('http://45.32.235.206:8000/api/jobs').then(function(data) {
+            dispatch({
+                type: JOBS,
+                payload: {
+                    jobs: data
                 }
             });
             dispatch({type: LOADING, payload: false});
