@@ -1,12 +1,9 @@
 'use strict';
 
 import React from 'react';
+import JobSelector from './jobSelectorView'
 
 class Create extends React.Component {
-
-	componentWillMount(){
-		this.props.getJobList();
-	}
 
 	handleForm() {
 		const name = this.refs.userName.value;
@@ -20,11 +17,7 @@ class Create extends React.Component {
 				<h2>CREATE NEW USER</h2>
 				<form ref="createUserForm" onSubmit={this.handleForm.bind(this)}>
 					<input type="User name" ref="userName"/>
-					<select name="job" id="" ref="jobSelect">
-						{this.props.jobs && this.props.jobs.map((job, i) => 
-							<option value={job} key={i}>{job}</option>
-						)}
-					</select>
+					<JobSelector {...this.props}/>
 					<input type="submit"/>
 				</form>
 			</div>;
