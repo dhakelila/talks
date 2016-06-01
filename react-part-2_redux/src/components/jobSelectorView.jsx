@@ -10,7 +10,7 @@ class JobSelector extends React.Component {
 
 	render(){
 		return <div>
-			<select name="job" id="" ref="jobSelect">
+			<select name="job" id="">
 				{this.props.jobs && this.props.jobs.map((job, i) => 
 					<option value={job} key={i}>{job}</option>
 				)}

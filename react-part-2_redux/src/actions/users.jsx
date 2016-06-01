@@ -52,14 +52,17 @@ export function createUser(name, job) {
     }
 };
 
-export function editUser(id) {
-    return
+export function editUser(id, data) {
     return function(dispatch){
         dispatch({
             type: LOADING,
             payload: true
         });
-        $.put('http://45.32.235.206:8000/api/users/' + id).then(function(data){
+        $.ajax({
+            type: 'PUT',
+            data: data,
+            url: 'http://45.32.235.206:8000/api/users/' + id
+        }).then(function(data){
             dispatch({
                 type: EDIT,
                 payload:{

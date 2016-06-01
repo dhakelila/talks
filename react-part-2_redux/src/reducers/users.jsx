@@ -14,6 +14,8 @@ export default function(state = initialState, action) {
             return Object.assign({}, state, {detail: action.payload.detail});
         case JOBS:
             return Object.assign({}, state, {jobs: action.payload.jobs});
+        case EDIT:
+            return Object.assign({}, state, {editedUser: action.payload.editedUser});
         case DELETE:
 
             for (var n = 0 ; n < state.list.length ; n++) {

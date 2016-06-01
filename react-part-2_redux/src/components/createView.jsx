@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import JobSelector from './jobSelectorView'
+import JobSelector from './jobSelectorView';
 
 class Create extends React.Component {
 
@@ -17,7 +17,7 @@ class Create extends React.Component {
 				<h2>CREATE NEW USER</h2>
 				<form ref="createUserForm" onSubmit={this.handleForm.bind(this)}>
 					<input type="User name" ref="userName"/>
-					<JobSelector {...this.props}/>
+					<JobSelector {...this.props} ref="jobSelect"/>
 					<input type="submit"/>
 				</form>
 			</div>;
