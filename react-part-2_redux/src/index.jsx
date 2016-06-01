@@ -13,9 +13,8 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 import * as reducers from './reducers';
 
-import {App, Home, Detail, Create} from './containers';
-// import Home from './containers/home.jsx';
-
+//Here we import containers in order for them to work.
+import {App, Home, Detail, Create, JobSelector} from './containers';
 
 const reducer = combineReducers({
   ...reducers,

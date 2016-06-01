@@ -6,7 +6,7 @@ const initialState = {
 
 
 export default function(state = initialState, action) {
-
+    console.log("action", action)
     switch (action.type) {
         case INIT:
             return Object.assign({}, state, {list: action.payload.users});
@@ -23,7 +23,7 @@ export default function(state = initialState, action) {
                   break;
                 }
             }
-
+            console.log('delete', Object.assign({}, state, {deletedUser: action.payload.deletedUser}))
             return Object.assign({}, state, {deletedUser: action.payload.deletedUser});
         default:
             return state;
