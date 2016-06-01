@@ -1,9 +1,14 @@
 'use strict';
 
 import React from 'react';
-import JobSelector from './jobSelectorView'
+import EditionForm from './editionFormView'
 
 class Create extends React.Component {
+
+	componentWillMount(){
+		//To make it available to the form.
+		this.props.handleForm = this.handleForm;
+	}
 
 	handleForm() {
 		const name = this.refs.userName.value;
@@ -15,11 +20,7 @@ class Create extends React.Component {
 	render(){
 		return <div>
 				<h2>CREATE NEW USER</h2>
-				<form ref="createUserForm" onSubmit={this.handleForm.bind(this)}>
-					<input type="User name" ref="userName"/>
-					<JobSelector {...this.props}/>
-					<input type="submit"/>
-				</form>
+				<EditionForm {...this.props}/>
 			</div>;
 		}
 };

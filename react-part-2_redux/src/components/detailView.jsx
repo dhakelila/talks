@@ -2,25 +2,32 @@
 
 import React from 'react';
 import {Link} from 'react-router';
+import EditionForm from './editionFormView';
 
 class Detail extends React.Component {
 
-    componentWillMount(){
-        this.props.getDetail(this.props.params.id);
-    }
+	componentWillMount(){
+		this.props.getDetail(this.props.params.id);
 
-    render(){
-        console.log('detailView', this.props)
-        return <div>
-                <Link to={'/'}><h2>Detail</h2></Link>
-                {this.props.detail && <div>
-                    <h3>Name: {this.props.detail.name}</h3>
-                    <h3>job: {this.props.detail.job}</h3>
-                    <button>EDIT</button>
-                </div>}
+		//To make it available to the form.
+		this.props.handleForm = this.handleForm;
+	}
 
-            </div>;
-        }
+	handleForm() {
+		const name = this.refs.userName.value;
+		const jobSelect = this.refs.jobSelect.value;
+		this.props.editeUser(name, jobSelect);
+		this.refs.createUserForm.reset();
+	}
+
+	render(){
+		return <div>
+				   <h4>Current name: {this.props.detail && this.props.detail.name}</h4> 
+				   <h4>Current job: {this.props.detail && this.props.detail.job}</h4>
+				   <p>Set new values</p> 
+				   <EditionForm {...this.props}/>
+				</div>
+		}
 };
 
 export default Detail;
