@@ -7,7 +7,7 @@ class EditionForm extends React.Component {
 
 	render(){
 		return <div>
-				<form ref="createUserForm" onSubmit={this.handleForm.bind(this)}>
+				<form ref="createUserForm" onSubmit={this.props.handleForm.bind(this)}>
 					<input type="User name" ref="userName"/>
 					<JobSelector {...this.props}/>
 					<input type="submit"/>

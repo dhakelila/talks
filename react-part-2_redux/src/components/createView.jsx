@@ -7,7 +7,7 @@ class Create extends React.Component {
 
 	componentWillMount(){
 		//To make it available to the form.
-		this.props.handleForm = this.handleForm;
+		// this.props.handleForm = this.handleForm;
 	}
 
 	handleForm() {
@@ -20,7 +20,7 @@ class Create extends React.Component {
 	render(){
 		return <div>
 				<h2>CREATE NEW USER</h2>
-				<EditionForm {...this.props}/>
+				<EditionForm handleForm={this.handleForm.bind(this)} {...this.props}/>
 			</div>;
 		}
 };
