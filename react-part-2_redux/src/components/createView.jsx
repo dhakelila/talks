@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import JobSelector from './jobSelector'
+import JobSelector from '../containers/jobSelector'
 
 class Create extends React.Component {
 
